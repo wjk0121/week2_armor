@@ -1,0 +1,34 @@
+%YAML:1.0
+---
+#  仿真器相机标定(rune_sim_camera, 960x720), 重投影误差 0.0140px
+#  以下 camera_matrix / dist_coeffs 与战队给出的数据逐位一致:
+#    image_width: 960, image_height: 720, camera_name: rune_sim_camera
+#    camera_matrix: [869.1168824543144, 0, 480; 0, 869.1168824543144, 360; 0, 0, 1]
+#    distortion_model: plumb_bob, distortion_coefficients: [0,0,0,0,0]
+#    rectification_matrix: 单位阵, projection_matrix 与 camera_matrix 同(零平移)
+#  与实拍视频内参完全独立; 处理 images/ 下的仿真图时用 --camera camera_sim.yaml
+camera_matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [869.1168824543144, 0., 480.,
+          0., 869.1168824543144, 360.,
+          0., 0., 1.]
+dist_coeffs: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [0., 0., 0., 0., 0.]
+
+#  标定图像尺寸(内参基于此分辨率; 字段名与战队数据 image_width/image_height 对齐)
+image_width: 960
+image_height: 720
+
+#  装甲板实际尺寸(mm): 两灯条中心距 x 灯条长度
+small_width: 135.0
+small_height: 55.0
+big_width: 225.0
+big_height: 55.0
+
+#  仿真图灯条为蓝色(与实拍视频的橙红相反); 使用本文件后运行无需再加 --enemy
+enemy_color: "blue"

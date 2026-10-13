@@ -1,0 +1,32 @@
+%YAML:1.0
+---
+#  相机内参与畸变系数(题目给定, 重投影误差 0.1448px)
+#  实拍视频专用, 标定分辨率 1440x1080; 仿真图片请改用 camera_sim.yaml
+camera_matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [2362.2795952460974, 0., 679.17513921636282,
+          0., 2336.1916035376717, 529.06858905837635,
+          0., 0., 1.]
+dist_coeffs: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [-0.098561592108101559, 0.11173066531932681,
+          -0.0038352945867108721, -0.0020421443354436304, 0.]
+
+#  标定图像尺寸(内参基于此分辨率; 字段名与仿真数据 image_width/image_height 对齐)
+image_width: 1440
+image_height: 1080
+
+#  装甲板实际尺寸(mm): 两灯条中心距 x 灯条长度
+small_width: 135.0
+small_height: 55.0
+big_width: 225.0
+big_height: 55.0
+
+#  敌方灯条颜色: red / blue
+#  实拍视频(2026-05-20)为橙红色灯条 -> red
+#  (仿真图的蓝色灯条随后面的 camera_sim.yaml 自带)
+enemy_color: "red"

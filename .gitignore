@@ -1,0 +1,11 @@
+build/
+data/
+models/
+images/
+truth/
+results/
+*.avi
+*.onnx
+.vscode/
+.DS_Store
+*.swp
